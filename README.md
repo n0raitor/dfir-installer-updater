@@ -5,8 +5,8 @@ Run the PowerShell Script / File t oget the latest version of the DFIR-Installer
 Create the Directory: C:\DFIR\_dfir-installer\" and run the Script inside this folder:
 
 ```powershell
-New-Item -Path 'C:\DFIR_dfir-installer' -ItemType Directory -Force
-Set-Location 'C:\DFIR_dfir-installer'
+New-Item -Path 'C:\DFIR\_dfir-installer' -ItemType Directory -Force
+Set-Location 'C:\DFIR\_dfir-installer'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/n0raitor/dfir-installer-updater/refs/heads/main/Get-dfid-installer-Update.ps1' `
                  -OutFile 'Get-dfid-installer-Update.ps1'
 
