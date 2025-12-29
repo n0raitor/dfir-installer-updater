@@ -10,14 +10,11 @@ New-Item -Path 'C:\DFIR\_dfir-installer' -ItemType Directory -Force
 Set-Location 'C:\DFIR\_dfir-installer'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/n0raitor/dfir-installer-updater/refs/heads/main/Get-dfir-installer-Update.ps1' -OutFile ./Get-dfir-installer-Update.ps1
 ```
-```powershell
-.\Get-dfir-installer-Update.ps1
-```
+Follow the dfir-installer tutorial up to point 5.:
+https://github.com/n0raitor/dfir-installer/blob/main/README.md
 
-Maybe fix execution error:
 ```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\Get-dfid-installer-Update.ps1
+& 'C:\Program Files\PowerShell\7\pwsh.exe' -ExecutionPolicy Bypass .\Get-dfir-installer-Update.ps1
 ```
 
 This Script will only update the Script files of the DFIR-Installer. The Configurations and Presets can get synced using the DFIR-Installer Script (Rely on GitHub Repo "DFIR-Installer-Files".
