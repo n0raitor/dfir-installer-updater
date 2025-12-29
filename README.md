@@ -8,8 +8,7 @@ For better integration in the update script of the dfir-installer, place it into
 ```powershell
 New-Item -Path 'C:\DFIR\_dfir-installer' -ItemType Directory -Force
 Set-Location 'C:\DFIR\_dfir-installer'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/n0raitor/dfir-installer-updater/refs/heads/main/Get-dfid-installer-Update.ps1' `
-                 -OutFile 'Get-dfid-installer-Update.ps1'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/n0raitor/dfir-installer-updater/refs/heads/main/Get-dfir-installer-Update.ps1' -OutFile ./Get-dfir-installer-Update.ps1
 ```
 ```powershell
 .\Get-dfir-installer-Update.ps1
