@@ -217,6 +217,35 @@ Remove-Item -Path $tempZip, $tempExtract -Recurse -Force
 Remove-Item -Path $backupRoot -Recurse -Force
 Write-Host "[*] Backup folder removed (update confirmed successful)." -ForegroundColor Cyan
 
+# --------------------------------------------------------------
+#  Post‑update tidy‑up: flatten a single nested folder
+# --------------------------------------------------------------
+
+# Path to the main installer folder (already defined earlier as $SubFolderPath)
+$installerRoot = $SubFolderPath
+
+# Get all *directories* directly under the installer root (ignore files)
+$subDirs = Get-ChildItem -Path $installerRoot -Directory
+
+if ($subDirs.Count -eq 1) {
+    $singleDir = $subDirs[0].FullName
+    Write-Host "[*] Detected a single nested folder:`n    $singleDir" -ForegroundColor Cyan
+
+    # Move everything from the inner folder up to the installer root
+    Get-ChildItem -Path $singleDir -Force | ForEach-Object {
+        $dest = Join-Path $installerRoot $_.Name
+        # Preserve the original structure (files and sub‑folders)
+        Move-Item -Path $_.FullName -Destination $dest -Force
+    }
+
+    # Remove the now‑empty inner folder
+    Remove-Item -Path $singleDir -Recurse -Force
+    Write-Host "[*] Flattened the folder hierarchy – inner folder removed." -ForegroundColor Green
+}
+else {
+    Write-Host "[*] No flattening needed (found $($subDirs.Count) top‑level folders)." -ForegroundColor Gray
+}
+
 Write-Host "`n[*] Update successful! Test the installer in the `$SubFolderName\` folder." -ForegroundColor Green
 
 # --------------------------------------------------------------
