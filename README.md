@@ -20,3 +20,5 @@ https://github.com/n0raitor/dfir-installer/blob/main/README.md
 This Script will only update the Script files of the DFIR-Installer. The Configurations and Presets can get synced using the DFIR-Installer Script (Rely on GitHub Repo "DFIR-Installer-Files".
 
 For more information about the Usage of the DFIR-Installer, feel free to read the [README.md](https://github.com/n0raitor/dfir-installer/blob/main/README.md) 
+
+**Important**: Set PowerShell 7 As your default PowerShell Version to run the scripts easier.
