@@ -2,7 +2,7 @@
 PowerShell Script to update the DFIR-Installer Tool
 
 Run the PowerShell Script / File t oget the latest version of the DFIR-Installer from [my Repository](https://github.com/n0raitor/dfir-installer)
-Create the Directory: C:\DFIR\_dfir-installer\" and run the Script inside this folder:
+Create the Directory: "C:\DFIR\\_dfir-installer\" and run the Script inside this folder:
 
 For better integration in the update script of the dfir-installer, place it into this location:
 ```powershell
